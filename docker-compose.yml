@@ -1,0 +1,9 @@
+version: "2"
+services:
+  mage1dev:
+    build:
+      context: .
+      args:
+          magento_url: "http://localhost.dev:8080"
+    ports:
+      - "8080:80"

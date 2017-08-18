@@ -1,0 +1,14 @@
+commands:
+  N98\Magento\Command\Installer\InstallCommand:
+    installation:
+      defaults:
+        currency: USD
+        admin_username: admin
+        admin_firstname: Admin
+        admin_lastname: User
+        admin_password: password1
+        admin_email: admin@example.com
+        locale: en_US
+        timezone: America/New_York
+        use_rewrites: no
+        use_secure: no

@@ -1,0 +1,6 @@
+{
+    "service": {
+        "name": "php",
+        "port": 9000
+    }
+}

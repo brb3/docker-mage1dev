@@ -1,0 +1,30 @@
+#!/usr/bin/env sh
+
+# Start mysql server.
+mysqld_safe &
+
+# Install magerun
+wget -O /usr/bin/mage http://files.magerun.net/n98-magerun-latest.phar
+chmod a+x /usr/bin/mage
+
+# Install modman
+wget -O /usr/bin/modman https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
+chmod a+x /usr/bin/modman
+
+# Install magento
+cd $MAGEDIR
+mysql -u root -e 'create database magento;'
+mage install \
+    --baseUrl=$MAGEURL \
+    --dbHost="127.0.0.1" \
+    --dbName="magento" \
+    --dbPass="" \
+    --dbUser="root" \
+    --installationFolder=. \
+    --installSampleData=yes \
+    --magentoVersionByName="magento-mirror-1.9.2.2" \
+    --useDefaultConfigParams=yes
+
+modman init
+chown -R nginx:nginx $MAGEDIR
+killall mysqld_safe

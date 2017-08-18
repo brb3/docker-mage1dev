@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv sh
+
+exec nginx;
+# Based on https://github.com/smebberson/docker-alpine/blob/master/alpine-consul-nginx/root/etc/services.d/nginx/run
